@@ -11,32 +11,31 @@ fn main() {
     println!("{}", n);
     return;
   }
-  let mut note = vec![vec![false; n]; n];
+  let mut note = vec![vec![]; n];
 
-  for i in 0..n {
+  for i in 0..m {
     let (a, b) = e[i];
-    note[a-1][b-1]= true;
+    note[a - 1].push(b - 1);
   }
 
   for i in 0..n {
     let mut visitable = vec![false; n];
-    visitable[i]=true;
+    visitable[i] = true;
     search(i, n, &note, &mut visitable);
-    for j in 0..n{
-      ans += if visitable[j] {1}else{0}
+    for j in 0..n {
+      ans += if visitable[j] { 1 } else { 0 }
     }
   }
-  
   println!("{}", ans);
 }
 
-fn search(index: usize, n:usize, note: & Vec<Vec<bool>>, visitable: &mut Vec<bool>){
-  for i in 0..n{
-    if note[index][i] {
-      if !visitable[i] {
-        visitable[i] = true; 
-        search(i, n, note, visitable);
-      }
+fn search(index: usize, n: usize, note: &Vec<Vec<usize>>, visitable: &mut Vec<bool>) {
+  for i in note[index].iter() {
+    // if {
+    if !visitable[*i] {
+      visitable[*i] = true;
+      search(*i, n, note, visitable);
     }
   }
+  // }
 }
