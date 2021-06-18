@@ -2,12 +2,12 @@ use proconio::input;
 
 fn main() {
   input!{
-    n: isize,
+    n: usize,
     a: [isize; n]
   }
   let mut ans = 0;
   for i in 0..n {
-    ans += std::cmp::max(a[i as usize] - 10, 0);
+    ans += std::cmp::max(a[i] - 10, 0);
   }
   println!("{}", ans);
 }
