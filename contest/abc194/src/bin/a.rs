@@ -4,7 +4,7 @@ fn main() {
   input! {
     a: usize,
     b: usize,
-  }  
+  }
   let milk = a + b;
 
   if milk >= 15 && b>=8 {
@@ -16,4 +16,5 @@ fn main() {
   }else{
     println!("4");
   }
+
 }

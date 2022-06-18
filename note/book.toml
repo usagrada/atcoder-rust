@@ -1,0 +1,6 @@
+[book]
+authors = ["usagrada"]
+language = "ja"
+multilingual = false
+src = "src"
+title = "競プロ Rust"
